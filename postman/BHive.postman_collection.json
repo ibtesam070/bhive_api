@@ -57,7 +57,106 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"test@gmail.com\",\n    \"password\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 04 Jan 2025 09:30:50 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "167"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZXhwIjoxNzM2MDY5NDUwLCJpYXQiOjE3MzU5ODMwNTB9.hpo4y35diZdBgfmFe6uTycv_MCfwT-qx9omDxID8weE\"\n}"
+				},
+				{
+					"name": "Failure - User already exists",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"test@gmail.com\",\n    \"password\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 04 Jan 2025 09:31:08 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "32"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"User already exists\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Login",
@@ -109,7 +208,155 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"test@gmail.com\",\n    \"password\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 04 Jan 2025 09:31:32 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "167"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZXhwIjoxNzM2MDY5NDkzLCJpYXQiOjE3MzU5ODMwOTN9.Mo71JmDANwK69OF1joGik5muxhybh0C4ekVoC3DQzoU\"\n}"
+				},
+				{
+					"name": "Failure - Incorrect password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"test@gmail.com\",\n    \"password\":\"1234567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 04 Jan 2025 09:31:45 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "38"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Invalid email or password\"\n}"
+				},
+				{
+					"name": "Failure - Incorrect email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"test2@gmail.com\",\n    \"password\":\"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 04 Jan 2025 09:32:06 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "38"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Invalid email or password\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Get Schemes",
@@ -143,7 +390,100 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/fund/schemes?fund_family=Trust Mutual Fund",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"fund",
+								"schemes"
+							],
+							"query": [
+								{
+									"key": "fund_family",
+									"value": "Trust Mutual Fund"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 04 Jan 2025 09:32:42 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "17259"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"Scheme_Code\": 148656,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01107\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND - DIRECT GROWTH\",\n            \"Net_Asset_Value\": 1240.1665,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148655,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01016\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND - REGULAR GROWTH\",\n            \"Net_Asset_Value\": 1216.0836,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148672,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01180\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01172\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND DIRECT PLAN ANNUAL INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL OPTION\",\n            \"Net_Asset_Value\": 1123.1289,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148678,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01115\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND DIRECT PLAN DAILY INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL\",\n            \"Net_Asset_Value\": 1244.2938,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148681,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01149\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01131\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND DIRECT PLAN MONTHLY INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL OPTION\",\n            \"Net_Asset_Value\": 1103.1605,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148670,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01164\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01156\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND DIRECT PLAN QUARTERLY INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL\",\n            \"Net_Asset_Value\": 1120.0188,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148675,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01123\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND DIRECT PLAN WEEKLY INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL\",\n            \"Net_Asset_Value\": 1086.9594,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148669,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01099\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01081\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND REGULAR PLAN ANNUAL INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL\",\n            \"Net_Asset_Value\": 1100.0686,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148667,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01024\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND REGULAR PLAN DAILY INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL\",\n            \"Net_Asset_Value\": 1184.1326,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148674,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01057\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01040\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND REGULAR PLAN MONTHLY INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL\",\n            \"Net_Asset_Value\": 1086.6692,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148668,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01073\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01065\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND REGULAR PLAN QUARTERLY INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL\",\n            \"Net_Asset_Value\": 1098.4372,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148679,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01032\",\n            \"Scheme_Name\": \"TRUSTMF BANKING & PSU FUND REGULAR PLAN WEEKLY INCOME DISTRIBUTION CUM CAPITAL WITHDRAWAL\",\n            \"Net_Asset_Value\": 1072.5092,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Banking and PSU Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 151320,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01560\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF CORPORATE BOND FUND-DIRECT PLAN-GROWTH\",\n            \"Net_Asset_Value\": 1153.2379,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Corporate Bond Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 151321,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01586\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01578\",\n            \"Scheme_Name\": \"TRUSTMF CORPORATE BOND FUND-DIRECT PLAN-MONTHLY IDCW\",\n            \"Net_Asset_Value\": 1125.2246,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Corporate Bond Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 151322,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01537\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF CORPORATE BOND FUND-REGULAR PLAN-GROWTH\",\n            \"Net_Asset_Value\": 1144.266,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Corporate Bond Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 151319,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01552\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01545\",\n            \"Scheme_Name\": \"TRUSTMF CORPORATE BOND FUND-REGULAR PLAN-MONTHLY IDCW\",\n            \"Net_Asset_Value\": 1114.9903,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Corporate Bond Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148842,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01263\",\n            \"Scheme_Name\": \"TRUSTMF Liquid Fund-Direct Plan-Daily Income Distribution cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1193.4302,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Liquid Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148841,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01255\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF Liquid Fund-Direct Plan-Growth\",\n            \"Net_Asset_Value\": 1235.2115,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Liquid Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148839,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01305\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01297\",\n            \"Scheme_Name\": \"TRUSTMF Liquid Fund-Direct Plan-Monthly Income Distribution cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1138.0561,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Liquid Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148837,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01271\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01289\",\n            \"Scheme_Name\": \"TRUSTMF Liquid Fund-Direct Plan-Weekly Income Distribution cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1162.5644,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Liquid Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148834,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01206\",\n            \"Scheme_Name\": \"TRUSTMF Liquid Fund-Regular Plan-Daily Income Distribution cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1144.3681,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Liquid Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148833,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01198\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF Liquid Fund-Regular Plan-Growth\",\n            \"Net_Asset_Value\": 1228.3102,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Liquid Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148843,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01248\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01230\",\n            \"Scheme_Name\": \"TRUSTMF Liquid Fund-Regular Plan-Monthly Income Distribution cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1132.2831,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Liquid Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 148836,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01214\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01222\",\n            \"Scheme_Name\": \"TRUSTMF Liquid Fund-Regular Plan-Weekly Income Distribution cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1120.1751,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Liquid Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 150513,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01503\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF MONEY MARKET FUND-DIRECT PLAN-GROWTH\",\n            \"Net_Asset_Value\": 1180.1255,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Money Market Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 150514,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01529\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01511\",\n            \"Scheme_Name\": \"TRUSTMF MONEY MARKET FUND-DIRECT PLAN-MONTHLY IDCW\",\n            \"Net_Asset_Value\": 1099.6406,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Money Market Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 150511,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01479\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF MONEY MARKET FUND-REGULAR PLAN-GROWTH\",\n            \"Net_Asset_Value\": 1175.9817,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Money Market Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 150512,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01495\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01487\",\n            \"Scheme_Name\": \"TRUSTMF MONEY MARKET FUND-REGULAR PLAN-MONTHLY IDCW\",\n            \"Net_Asset_Value\": 1095.6845,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Money Market Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149796,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01461\",\n            \"Scheme_Name\": \"TRUST MF OVERNIGHT FUND-DIRECT PLAN-DAILY IDCW REINVESTMENT\",\n            \"Net_Asset_Value\": 1181.5215,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Overnight Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149797,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01453\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUST MF OVERNIGHT FUND-DIRECT PLAN-GROWTH\",\n            \"Net_Asset_Value\": 1191.2131,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Overnight Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149798,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01446\",\n            \"Scheme_Name\": \"TRUST MF OVERNIGHT FUND-REGULAR PLAN-DAILY IDCW REINVESTMENT\",\n            \"Net_Asset_Value\": 1179.876,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Overnight Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149795,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01438\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUST MF OVERNIGHT FUND-REGULAR-GROWTH\",\n            \"Net_Asset_Value\": 1189.4656,\n            \"Date\": \"05-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Overnight Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149076,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01370\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF Short Duration Fund-Direct Plan-Growth\",\n            \"Net_Asset_Value\": 1216.8701,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Short Duration Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149078,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01396\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01404\",\n            \"Scheme_Name\": \"TRUSTMF Short Duration Fund-Direct Plan-Monthly Income Distribution Cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1095.9213,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Short Duration Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149079,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01412\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01420\",\n            \"Scheme_Name\": \"TRUSTMF Short Duration Fund-Direct Plan-Quarterly Income Distribution Cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1108.0031,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Short Duration Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149077,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01388\",\n            \"Scheme_Name\": \"TRUSTMF Short Duration Fund-Direct Plan-Weekly Income Distribution Cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1079.3993,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Short Duration Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149073,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01313\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Scheme_Name\": \"TRUSTMF Short Duration Fund-Regular Plan-Growth\",\n            \"Net_Asset_Value\": 1196.2757,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Short Duration Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149080,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01339\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01347\",\n            \"Scheme_Name\": \"TRUSTMF Short Duration Fund-Regular Plan-Monthly Income Distribution Cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1085.0329,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Short Duration Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149075,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01354\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01362\",\n            \"Scheme_Name\": \"TRUSTMF Short Duration Fund-Regular Plan-Quarterly Income Distribution Cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1088.1963,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Short Duration Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 149074,\n            \"ISIN_Div_Payout_ISIN_Growth\": \"-\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01321\",\n            \"Scheme_Name\": \"TRUSTMF Short Duration Fund-Regular Plan-Weekly Income Distribution Cum Capital Withdrawal\",\n            \"Net_Asset_Value\": 1069.5845,\n            \"Date\": \"03-Jan-2025\",\n            \"Scheme_Type\": \"Open Ended Schemes\",\n            \"Scheme_Category\": \"Debt Scheme - Short Duration Fund\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\"\n        },\n        {\n            \"Scheme_Code\": 152584,\n            \"Date\": \"03-Jan-2025\",\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01743\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\",\n            \"Net_Asset_Value\": 12.33,\n            \"Scheme_Category\": \"Equity Scheme - Flexi Cap Fund\",\n            \"Scheme_Name\": \"TRUSTMF Flexi Cap Fund-Direct Plan- Growth\",\n            \"Scheme_Type\": \"Open Ended Schemes\"\n        },\n        {\n            \"Scheme_Code\": 152585,\n            \"Date\": \"03-Jan-2025\",\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01750\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01768\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\",\n            \"Net_Asset_Value\": 12.33,\n            \"Scheme_Category\": \"Equity Scheme - Flexi Cap Fund\",\n            \"Scheme_Name\": \"TRUSTMF Flexi Cap Fund-Direct Plan- IDCW\",\n            \"Scheme_Type\": \"Open Ended Schemes\"\n        },\n        {\n            \"Scheme_Code\": 152582,\n            \"Date\": \"03-Jan-2025\",\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01719\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\",\n            \"Net_Asset_Value\": 12.18,\n            \"Scheme_Category\": \"Equity Scheme - Flexi Cap Fund\",\n            \"Scheme_Name\": \"TRUSTMF Flexi Cap Fund-Regular Plan- Growth\",\n            \"Scheme_Type\": \"Open Ended Schemes\"\n        },\n        {\n            \"Scheme_Code\": 152583,\n            \"Date\": \"03-Jan-2025\",\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01727\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01735\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\",\n            \"Net_Asset_Value\": 12.18,\n            \"Scheme_Category\": \"Equity Scheme - Flexi Cap Fund\",\n            \"Scheme_Name\": \"TRUSTMF Flexi Cap Fund-Regular Plan- IDCW\",\n            \"Scheme_Type\": \"Open Ended Schemes\"\n        },\n        {\n            \"Scheme_Code\": 152939,\n            \"Date\": \"03-Jan-2025\",\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01800\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\",\n            \"Net_Asset_Value\": 10.99,\n            \"Scheme_Category\": \"Equity Scheme - Small Cap Fund\",\n            \"Scheme_Name\": \"TRUSTMF SMALL CAP FUND -DIRECT PLAN-GROWTH\",\n            \"Scheme_Type\": \"Open Ended Schemes\"\n        },\n        {\n            \"Scheme_Code\": 152937,\n            \"Date\": \"03-Jan-2025\",\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01826\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01818\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\",\n            \"Net_Asset_Value\": 10.99,\n            \"Scheme_Category\": \"Equity Scheme - Small Cap Fund\",\n            \"Scheme_Name\": \"TRUSTMF SMALL CAP FUND -DIRECT PLAN-IDCW\",\n            \"Scheme_Type\": \"Open Ended Schemes\"\n        },\n        {\n            \"Scheme_Code\": 152938,\n            \"Date\": \"03-Jan-2025\",\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01792\",\n            \"ISIN_Div_Reinvestment\": \"INF0GCD01784\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\",\n            \"Net_Asset_Value\": 10.95,\n            \"Scheme_Category\": \"Equity Scheme - Small Cap Fund\",\n            \"Scheme_Name\": \"TRUSTMF SMALL CAP FUND -REGULAR PLAN- IDCW\",\n            \"Scheme_Type\": \"Open Ended Schemes\"\n        },\n        {\n            \"Scheme_Code\": 152940,\n            \"Date\": \"03-Jan-2025\",\n            \"ISIN_Div_Payout_ISIN_Growth\": \"INF0GCD01776\",\n            \"ISIN_Div_Reinvestment\": \"-\",\n            \"Mutual_Fund_Family\": \"Trust Mutual Fund\",\n            \"Net_Asset_Value\": 10.95,\n            \"Scheme_Category\": \"Equity Scheme - Small Cap Fund\",\n            \"Scheme_Name\": \"TRUSTMF SMALL CAP FUND -REGULAR PLAN-GROWTH\",\n            \"Scheme_Type\": \"Open Ended Schemes\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Failure - Unauthenticated (no token)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/fund/schemes?fund_family=Trust Mutual Fund",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"fund",
+								"schemes"
+							],
+							"query": [
+								{
+									"key": "fund_family",
+									"value": "Trust Mutual Fund"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sat, 04 Jan 2025 09:33:01 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "30"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Not authenticated\"\n}"
+				}
+			]
 		}
 	],
 	"event": [
