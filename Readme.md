@@ -5,10 +5,10 @@ This guide explains how to set up the server, configure the environment, and run
 Prerequisites
 
 Ensure the following are installed on your machine:
-	•	Python 3.8 or higher
-	•	pip (Python package manager)
-	•	MySQL
-	•	Virtual environment tool (optional but recommended)
+- Python 3.8 or higher
+- pip (Python package manager)
+- MySQL
+- Virtual environment tool
 
 Steps to Set Up the Server
 
