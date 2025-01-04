@@ -4,6 +4,7 @@
         "bhive",
         "checkpw",
         "dotenv",
+        "fastapi",
         "gensalt",
         "hashpw",
         "mysqlconnector",
