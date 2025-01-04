@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+.virtualenv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs
+*.log
+*.out
+*.err
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+
+# Pytest cache
+.pytest_cache/
+
+# Mypy cache
+.mypy_cache/
+
+# PEP 582; used by e.g. `pdm`
+__pypackages__/
+
+# dotenv environment variable files
+.env
+.env.*
+
+# MacOS files
+.DS_Store
+
+# Editor and IDE files
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Docker
+*.stackdump
+
+# Other files
+*.sqlite3
+*.db
+*.pkl
+*.h5
+
+# Alembic (Migration files)
+alembic/versions/*.pyc   
+alembic/versions/__pycache__/
+alembic.ini 

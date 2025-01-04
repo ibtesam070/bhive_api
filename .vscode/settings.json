@@ -1,0 +1,14 @@
+{
+    "cSpell.words": [
+        "autoflush",
+        "bhive",
+        "checkpw",
+        "dotenv",
+        "gensalt",
+        "hashpw",
+        "mysqlconnector",
+        "rapidapi",
+        "sessionmaker",
+        "sqlalchemy"
+    ]
+}
